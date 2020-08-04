@@ -1,5 +1,6 @@
 import React from 'react'
 import './todoForm.css';
+import gateway from '../../gateway'
 
 class TodoForm extends React.Component {
   constructor(props) {
@@ -14,7 +15,12 @@ class TodoForm extends React.Component {
   };
 
   onSubmit = () => {
-    this.props.addTodo(this.state.text);
+    gateway.insert({
+      text: this.state.text,
+      status: "UNDONE"
+    }).then((res) => {
+      this.props.addTodo(res.data);
+    });
     this.setState({text: ''});
   };
 

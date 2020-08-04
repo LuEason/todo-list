@@ -1,8 +1,15 @@
 import React from 'react'
 import TodoContainer from '../../../containers/TodoContainer'
 import TodoFormContainer from '../../../containers/TodoFormContainer'
+import gateway from '../../../gateway'
 
 class TodoList extends React.Component {
+  componentDidMount() {
+    gateway.list().then((res) => {
+      this.props.setTodos(res.data);
+    })
+  }
+
   render() {
     return (
       <div>

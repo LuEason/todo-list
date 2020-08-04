@@ -12,7 +12,7 @@ const Router = () => {
           <a href='/Done'>Done TODO</a>
         </li>
         <li>
-          <a href='/All'>All TODO</a>
+          <a href='/'>All TODO</a>
         </li>
       </ul>
     </div>
@@ -26,8 +26,8 @@ function App() {
       <div className="App-header">
         <BrowserRouter>
           <Switch>
-            <Route path="/Done" extra component={DoneTodoListContainer}/>
-            <Route path="/All" extra component={AllTodoListContainer}/>
+            <Route path="/Done" component={DoneTodoListContainer}/>
+            <Route path="/" extra component={AllTodoListContainer}/>
           </Switch>
         </BrowserRouter>
       </div>

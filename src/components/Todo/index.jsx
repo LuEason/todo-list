@@ -1,5 +1,6 @@
 import React from 'react'
 import './todo.css';
+import gateway from '../../gateway'
 
 class Todo extends React.Component {
   constructor(props) {
@@ -10,12 +11,22 @@ class Todo extends React.Component {
   }
 
   handlerDivClick = () => {
-    this.setState({status: 'DONE' ? 'UNDONE' : 'DONE'});
-    this.props.changeStatus(this.props.id);
+    const newTodo = this.props.todo;
+    newTodo.status = newTodo.status === 'DONE' ? 'UNDONE' : 'DONE';
+    gateway.update(newTodo.id, newTodo).then((res) => {
+      if (res.status === 200) {
+        this.setState({status: 'DONE' ? 'UNDONE' : 'DONE'});
+        this.props.changeStatus(this.props.id);
+      }
+    })
   };
 
   handlerSpanClick = () => {
-    this.props.deleteTodo(this.props.id)
+    gateway.deleteById(this.props.id).then((res) => {
+      if (res.status === 200) {
+        this.props.deleteTodo(this.props.id)
+      }
+    });
   };
 
   render() {

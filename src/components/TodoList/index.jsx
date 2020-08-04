@@ -5,6 +5,7 @@ class TodoList extends React.Component {
   constructor(props) {
     super(props)
   }
+
   render() {
 
     return (
@@ -18,4 +19,5 @@ class TodoList extends React.Component {
     )
   }
 }
+
 export default TodoList;

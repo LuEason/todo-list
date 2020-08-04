@@ -1,21 +1,21 @@
 .UNDONE {
-  text-decoration: none;
-  width: 200px;
-  border: 1px solid white;
-  text-align: left;
+    text-decoration: none;
+    width: 200px;
+    border: 1px solid white;
+    text-align: left;
 }
 
 .DONE {
-  text-decoration: line-through;
-  width: 200px;
-  text-align: left;
-  border: 1px solid white;
+    text-decoration: line-through;
+    width: 200px;
+    text-align: left;
+    border: 1px solid white;
 }
 
 span {
-  display: inline-block;
+    display: inline-block;
 }
 
-.x{
-  display: inline;
+.x {
+    display: inline;
 }

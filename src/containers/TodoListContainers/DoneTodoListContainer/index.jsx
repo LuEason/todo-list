@@ -3,12 +3,10 @@ import {connect} from 'react-redux'
 import {deleteTodo} from '../../../actions'
 
 const mapStateToProps = (state) => {
-  const newList = state.todoList.filter((todo) => {
-    return todo.status === "DONE";
-  });
-  console.log(newList);
   return {
-    todoList: newList
+    todoList: state.todoList.filter((todo) => {
+      return todo.status === "DONE";
+    })
   }
 };
 

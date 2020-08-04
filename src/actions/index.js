@@ -9,16 +9,16 @@ export function addTodo(text) {
   }
 }
 
-export function changeStatus(index) {
+export function changeStatus(id) {
   return {
     type: CHANGE_STATUS,
-    index
+    id
   }
 }
 
-export function deleteTodo(index) {
+export function deleteTodo(id) {
   return {
     type: DELETE_TODO,
-    index
+    id
   }
 }

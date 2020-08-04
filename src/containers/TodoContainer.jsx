@@ -4,11 +4,12 @@ import {changeStatus} from '../actions'
 
 const mapDispatchToProps = dispatch => {
   return {
-    changeStatus: (index) => {
-      dispatch(changeStatus(index))
+    changeStatus: (id) => {
+      dispatch(changeStatus(id))
     }
   }
 };
+
 const TodoContainer = connect(null, mapDispatchToProps)(Todo);
 
 export default TodoContainer;

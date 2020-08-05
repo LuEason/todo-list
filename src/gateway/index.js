@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const basicURL = "https://5f29717da1b6bf0016ead66c.mockapi.io/todos";
+const basicURL = "/api";
 const instance = axios.create();
 
 const _request = async (options) => {
@@ -8,10 +8,11 @@ const _request = async (options) => {
 };
 
 const list = async function () {
-  return _request({
+  /*return _request({
     url: basicURL + '/todos',
     method: 'get'
-  })
+  })*/
+  return axios.get(basicURL + '/todos')
 };
 
 const insert = async function (todo) {

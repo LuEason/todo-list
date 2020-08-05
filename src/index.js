@@ -3,15 +3,34 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {createStore} from 'redux';
-import {Provider} from 'react-redux'
+import { createStore } from 'redux';
+import { Provider } from 'react-redux'
 import reducer from './reducers'
+import { Layout, Menu } from 'antd';
+import { HashRouter, Link } from "react-router-dom";
 
+const { Header, Content, Footer } = Layout;
 let store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render(
   <Provider store={store}>
-      <App/>
+    <HashRouter>
+      <Layout>
+        <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
+          <div className="logo" />
+          <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
+            <Menu.Item key="1"><Link to="/">All TODO</Link></Menu.Item>
+            <Menu.Item key="2"><Link to="/Done">Done TODO</Link></Menu.Item>
+          </Menu>
+        </Header>
+        <Content className="site-layout" style={{ padding: '50px', marginTop: 64 }}>
+          <div className="site-layout-background" style={{ padding: 24 }}>
+            <App />
+          </div>
+        </Content>
+        <Footer style={{ textAlign: 'center' }}>Eason Design ©2018 Created by Eason Lu</Footer>
+      </Layout>
+    </HashRouter>
   </Provider>,
   document.getElementById('root')
 );

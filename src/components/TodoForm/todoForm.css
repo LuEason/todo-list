@@ -1,3 +1,7 @@
 input[type="submit"] {
     margin-left: 20px;
 }
+
+.ant-input-search {
+  width: 80%;
+}

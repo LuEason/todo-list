@@ -1,6 +1,7 @@
 import React from 'react'
 import './todoForm.css';
 import gateway from '../../gateway'
+import { Input } from 'antd';
 
 class TodoForm extends React.Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class TodoForm extends React.Component {
   }
 
   handleChange = (event) => {
-    this.setState({text: event.target.value});
+    this.setState({ text: event.target.value });
   };
 
   onSubmit = () => {
@@ -21,14 +22,21 @@ class TodoForm extends React.Component {
     }).then((res) => {
       this.props.addTodo(res.data);
     });
-    this.setState({text: ''});
+    this.setState({ text: '' });
   };
 
   render() {
+    const { Search } = Input;
     return (
       <div>
-        <input type="text" onChange={this.handleChange} value={this.state.text}/>
-        <input type="submit" onClick={this.onSubmit}/>
+        <Search
+          placeholder="input TODO text"
+          enterButton="Insert"
+          size="large"
+          onChange={this.handleChange}
+          value={this.state.text}
+          onSearch={this.onSubmit}
+        />
       </div>
     )
   }

@@ -15,13 +15,25 @@ span {
     cursor: pointer;
 }
 
-.x {
+.delete {
     display: inline;
     cursor: pointer;
+    color: cyan;
 }
 
-#Todo {
+.Todo {
     width: 230px;
     border: 1px solid white;
     margin-bottom: 20px;
+    display: inline-block;
+}
+.ant-card-head-title {
+  flex: none;
+  font-size: 16px;
+}
+.ant-card-body {
+  text-align: left;
+}
+.ant-card-head {
+  padding: 0 15px!important;
 }

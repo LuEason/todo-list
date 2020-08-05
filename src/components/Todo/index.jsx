@@ -1,6 +1,7 @@
 import React from 'react'
 import './todo.css';
 import gateway from '../../gateway'
+import { Card } from 'antd';
 
 class Todo extends React.Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class Todo extends React.Component {
     newTodo.status = newTodo.status === 'DONE' ? 'UNDONE' : 'DONE';
     gateway.update(newTodo.id, newTodo).then((res) => {
       if (res.status === 200) {
-        this.setState({status: 'DONE' ? 'UNDONE' : 'DONE'});
+        this.setState({ status: 'DONE' ? 'UNDONE' : 'DONE' });
         this.props.changeStatus(this.props.id);
       }
     })
@@ -31,9 +32,10 @@ class Todo extends React.Component {
 
   render() {
     return (
-      <div id="Todo">
-        <span onClick={this.handlerDivClick} className={this.props.todo.status}>{this.props.todo.text}</span>
-        <span onClick={this.handlerSpanClick} className="x">×</span>
+      <div className="Todo">
+        <Card type="inner" title={"TODO: " + this.props.todo.id} extra={<span onClick={this.handlerSpanClick} className="delete">Delete</span>}>
+          {this.props.todo.text}
+        </Card>
       </div>
     )
   }

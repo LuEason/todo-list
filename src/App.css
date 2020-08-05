@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  height: 100%;
 }
 
 .App-logo {
@@ -52,10 +53,6 @@ ul li {
 
 a {
     text-decoration: none;
-}
-
-a:visited {
-    color: white;
 }
 
 #routerDiv {

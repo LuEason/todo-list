@@ -10,10 +10,11 @@ export function addTodo(todo) {
   }
 }
 
-export function changeStatus(id) {
+export function changeStatus(id, todo) {
   return {
     type: CHANGE_STATUS,
-    id
+    id,
+    todo
   }
 }
 

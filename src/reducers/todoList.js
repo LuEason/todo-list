@@ -1,4 +1,4 @@
-import { ADD_TODO, CHANGE_STATUS, DELETE_TODO, SET_TODOS } from '../actions';
+import {ADD_TODO, CHANGE_STATUS, DELETE_TODO, SET_TODOS} from '../actions';
 
 const todo = (todoList = [], action) => {
   switch (action.type) {
@@ -6,13 +6,20 @@ const todo = (todoList = [], action) => {
       return [...todoList, { id: action.todo.id, text: action.todo.text, status: action.todo.status }];
     }
     case CHANGE_STATUS: {
-      return todoList.map((todo) => {
-        return {
-          id: todo.id,
-          text: todo.text,
-          status: todo === action.id ? (todo.status === 'DONE' ? 'UNDONE' : 'DONE') : todo.status
+      let todolost = todoList.map((todo) => {
+        if (todo.id === action.id) {
+          return {
+            id: todo.id,
+            text: action.todo.text,
+            status: action.todo.status
+          }
+        } else {
+          return {
+            todo
+          }
         }
-      })
+      });
+      return todolost
     }
     case DELETE_TODO: {
       return todoList.filter((todo) => {

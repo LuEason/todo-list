@@ -4,8 +4,8 @@ import {changeStatus} from '../actions'
 
 const mapDispatchToProps = dispatch => {
   return {
-    changeStatus: (id) => {
-      dispatch(changeStatus(id))
+    changeStatus: (id, todo) => {
+      dispatch(changeStatus(id, todo))
     }
   }
 };

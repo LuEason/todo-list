@@ -8,11 +8,10 @@ const _request = async (options) => {
 };
 
 const list = async function () {
-  /*return _request({
+  return _request({
     url: basicURL + '/todos',
     method: 'get'
-  })*/
-  return axios.get(basicURL + '/todos')
+  })
 };
 
 const insert = async function (todo) {

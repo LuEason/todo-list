@@ -3,7 +3,7 @@ import TodoContainer from '../../../containers/TodoContainer'
 import TodoFormContainer from '../../../containers/TodoFormContainer'
 import gateway from '../../../gateway'
 import './index.css';
-import { Empty, Row, Col } from 'antd';
+import {Col, Empty, Row} from 'antd';
 
 class TodoList extends React.Component {
   componentDidMount() {
@@ -18,16 +18,16 @@ class TodoList extends React.Component {
         <div className="todoList">
           <Row gutter={[16, 24]} style={{width: "100%"}}>
             {
-                this.props.todoList.length !== 0 
+              this.props.todoList.length !== 0
                   ?
                 this.props.todoList.map((todo, index) => {
                   return(
-                    <Col className="gutter-row" span={6}>
+                    <Col className="gutter-row" span={6} key={index}>
                       <TodoContainer todo={todo} key={index} id={todo.id} deleteTodo={this.props.deleteTodo} />
                     </Col>
                   )
                 })
-                  : 
+                :
                 <Empty />
             }
           </Row>

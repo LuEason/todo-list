@@ -1,17 +1,18 @@
-import {ADD_TODO, CHANGE_STATUS, DELETE_TODO, SET_TODOS} from '../actions';
+import { ADD_TODO, CHANGE_STATUS, DELETE_TODO, SET_TODOS } from '../actions';
 
-const addTodo = (todoList = [], action) => {
+const todo = (todoList = [], action) => {
   switch (action.type) {
     case ADD_TODO: {
-      return [...todoList, {id: action.id, text: action.text, status: "UNDONE"}];
+      return [...todoList, { id: action.todo.id, text: action.todo.text, status: action.todo.status }];
     }
     case CHANGE_STATUS: {
-      const newTodoList = [...todoList];
-      const index = newTodoList.findIndex((todo) => {
-        return todo.id === action.id
-      });
-      newTodoList[index].status = newTodoList[index].status === 'DONE' ? 'UNDONE' : 'DONE';
-      return newTodoList;
+      return todoList.map((todo) => {
+        return {
+          id: todo.id,
+          text: todo.text,
+          status: todo === action.id ? (todo.status === 'DONE' ? 'UNDONE' : 'DONE') : todo.status
+        }
+      })
     }
     case DELETE_TODO: {
       return todoList.filter((todo) => {
@@ -27,4 +28,4 @@ const addTodo = (todoList = [], action) => {
   }
 };
 
-export default addTodo;
+export default todo;

@@ -19,6 +19,6 @@ const mapDispatchToProps = dispatch => {
   }
 };
 
-const Index = connect(mapStateToProps, mapDispatchToProps)(TodoList);
+const AllTodoListContainer = connect(mapStateToProps, mapDispatchToProps)(TodoList);
 
-export default Index;
+export default AllTodoListContainer;

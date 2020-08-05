@@ -2,8 +2,9 @@ import axios from 'axios';
 
 const basicURL = "https://5f29717da1b6bf0016ead66c.mockapi.io/todos";
 const instance = axios.create();
+
 const _request = async (options) => {
-  return await instance.request(options);
+  return instance.request(options);
 };
 
 const list = async function () {

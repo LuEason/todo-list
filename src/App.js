@@ -2,17 +2,17 @@ import React from 'react';
 import './App.css';
 import AllTodoListContainer from './containers/TodoListContainers/AllTodoListContainer';
 import DoneTodoListContainer from './containers/TodoListContainers/DoneTodoListContainer';
-import {BrowserRouter, Route, Switch} from "react-router-dom";
+import { HashRouter, Route, Switch, Link } from "react-router-dom";
 
 const Router = () => {
   return (
     <div id="routerDiv">
       <ul>
         <li>
-          <a href='/Done'>Done TODO</a>
+          <Link to="Done">Done TODO</Link>
         </li>
         <li>
-          <a href='/'>All TODO</a>
+          <Link to="/">All TODO</Link>
         </li>
       </ul>
     </div>
@@ -22,15 +22,15 @@ const Router = () => {
 function App() {
   return (
     <div className="App">
-      <Router/>
-      <div className="App-header">
-        <BrowserRouter>
+      <HashRouter>
+        <Router />
+        <div className="App-header">
           <Switch>
-            <Route path="/Done" component={DoneTodoListContainer}/>
-            <Route path="/" extra component={AllTodoListContainer}/>
+            <Route exact path="/" component={AllTodoListContainer} />
+            <Route path="/Done" component={DoneTodoListContainer} />
           </Switch>
-        </BrowserRouter>
-      </div>
+        </div>
+      </HashRouter>
     </div>
   );
 }

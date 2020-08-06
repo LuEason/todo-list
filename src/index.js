@@ -23,12 +23,12 @@ ReactDOM.render(
             <Menu.Item key="2"><Link to="/Done">Done TODO</Link></Menu.Item>
           </Menu>
         </Header>
-        <Content className="site-layout" style={{ padding: '50px', marginTop: 64 }}>
+        <Content className="site-layout" style={{ padding: '50px', marginTop: 64, paddingBottom: "0" }}>
           <div className="site-layout-background" style={{ padding: 24 }}>
             <App />
           </div>
         </Content>
-        <Footer style={{ textAlign: 'center' }}>Eason Design ©2018 Created by Eason Lu</Footer>
+        <Footer style={{ textAlign: 'center' }}>TODO List @2020 Created by Eason Lu</Footer>
       </Layout>
     </HashRouter>
   </Provider>,

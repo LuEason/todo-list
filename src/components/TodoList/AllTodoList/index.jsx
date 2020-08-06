@@ -16,13 +16,13 @@ class TodoList extends React.Component {
     return (
       <div className="rout">
         <div className="todoList">
-          <Row gutter={[16, 24]} style={{width: "100%"}}>
+          <Row style={{width: "100%"}}>
             {
               this.props.todoList.length !== 0
                   ?
                 this.props.todoList.map((todo, index) => {
                   return(
-                    <Col className="gutter-row" span={6} key={index}>
+                    <Col className="gutter-row" span={4} key={index}>
                       <TodoContainer todo={todo} key={index} id={todo.id} deleteTodo={this.props.deleteTodo} />
                     </Col>
                   )

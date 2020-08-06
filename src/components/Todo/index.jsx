@@ -1,8 +1,8 @@
 import React from 'react'
 import './todo.css';
 import gateway from '../../gateway'
-import {Card, Input, Modal, Switch} from 'antd';
-import {DeleteOutlined, EditOutlined} from '@ant-design/icons';
+import {Card, Input, Modal, Switch, Tag} from 'antd';
+import {DeleteOutlined, EditOutlined, CheckCircleOutlined, SyncOutlined} from '@ant-design/icons';
 
 class Todo extends React.Component {
   constructor(props) {
@@ -78,11 +78,18 @@ class Todo extends React.Component {
                 <EditOutlined key="edit" onClick={this.showModal}/>,
                 <DeleteOutlined key="delete" onClick={this.handlerDelete}/>
               ]}
+              extra={
+                this.props.todo.status === "DONE" 
+                  ? 
+                <Tag icon={<CheckCircleOutlined />} color="success">DONE</Tag>
+                  :
+                <Tag icon={<SyncOutlined spin />} color="processing">UNDONE</Tag>
+              }
         >
           {this.props.todo.text}
         </Card>
         <Modal
-          title="Basic Modal"
+          title={"Todo: " + this.props.id}
           visible={this.state.visible}
           onOk={this.handlerUpdate}
           onCancel={this.handleCancel}

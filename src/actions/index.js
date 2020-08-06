@@ -1,5 +1,5 @@
 export const ADD_TODO = "ADD_TODO";
-export const CHANGE_STATUS = "CHANGE_STATUS";
+export const UPDATE = "UPDATE";
 export const DELETE_TODO = "DELETE_TODO";
 export const SET_TODOS = "SET_TODOS";
 
@@ -10,9 +10,9 @@ export function addTodo(todo) {
   }
 }
 
-export function changeStatus(id, todo) {
+export function update(id, todo) {
   return {
-    type: CHANGE_STATUS,
+    type: UPDATE,
     id,
     todo
   }

@@ -1,11 +1,11 @@
 import Todo from '../components/Todo'
 import {connect} from 'react-redux'
-import {changeStatus} from '../actions'
+import {update} from '../actions'
 
 const mapDispatchToProps = dispatch => {
   return {
-    changeStatus: (id, todo) => {
-      dispatch(changeStatus(id, todo))
+    update: (id, todo) => {
+      dispatch(update(id, todo))
     }
   }
 };

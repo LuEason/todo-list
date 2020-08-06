@@ -22,7 +22,7 @@ class Todo extends React.Component {
     };
     gateway.update(newTodo.id, newTodo).then((res) => {
       if (res.status === 200) {
-        this.props.changeStatus(this.props.id, res.data);
+        this.props.update(this.props.id, res.data);
         this.setState({
           visible: false,
         });
